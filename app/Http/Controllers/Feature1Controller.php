@@ -28,7 +28,7 @@ class Feature1Controller extends Controller
     {
         $user = $request->user();
         if ($user->available_credits < $this->feature->required_credits) {
-            return back()->with('answer', 'Insufficient credits');
+            return back();
         }
 
         $data = $request->validate([
@@ -51,6 +51,6 @@ class Feature1Controller extends Controller
         ]);
 
 
-        return to_route('f1.index')->with('answer', "The result is $result");
+        return to_route('f1.index')->with('answer', $result);
     }
 }
