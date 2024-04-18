@@ -24,10 +24,28 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+                                <NavLink href={route('feature1.index')} active={route().current('feature1.index')}>
+                                    Calculate Sum
+                                </NavLink>
+                                <NavLink href={route('feature2.index')} active={route().current('feature2.index')}>
+                                    Calculate Product
+                                </NavLink>
                             </div>
                         </div>
 
-                        <div className="hidden sm:flex sm:items-center sm:ms-6">
+                        <div className="hidden sm:flex sm:items-center sm:ms-6 gap-3">
+                            <span
+                                className='text-black flex gap-3'
+                            >
+                                <img src="/img/coin.png" className='w-[20px]' alt="Coins" />
+                                {user.available_credits} Credits
+                            </span>
+                            <Link
+                                href='/'
+                                className='text-black py-1 px-3 rounded-md border transition-colors hover:bg-slate-100'
+                            >
+                                Get More
+                            </Link>
                             <div className="ms-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
@@ -94,6 +112,12 @@ export default function Authenticated({ user, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('feature1.index')} active={route().current('feature1.index')}>
+                            Calculate Sum
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('feature2.index')} active={route().current('feature2.index')}>
+                            Calculate Product
                         </ResponsiveNavLink>
                     </div>
 

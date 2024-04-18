@@ -13,7 +13,7 @@ class Feature1Controller extends Controller
 
     public function __construct()
     {
-        $this->feature = Feature::where('route_name', 'f1.index')->where('status', 1)->firstOrFail();
+        $this->feature = Feature::where('route_name', 'feature1.index')->where('status', 1)->firstOrFail();
     }
 
     public function index()
@@ -51,6 +51,6 @@ class Feature1Controller extends Controller
         ]);
 
 
-        return to_route('f1.index')->with('answer', $result);
+        return to_route('feature1.index')->with('answer', $result);
     }
 }

@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
 
         Feature::create([
             'image' => 'https://static-00.iconduck.com/assets.00/plus-icon-512x512-hnjyaquo.png',
-            'route_name' => 'f1.index',
+            'route_name' => 'feature1.index',
             'name' => 'Calculate Sum',
-            'description' => 'TCalculate sum of two numbers.',
+            'description' => 'Calculate sum of two numbers.',
             'required_credits' => 4,
             'status' => 1,
         ]);
