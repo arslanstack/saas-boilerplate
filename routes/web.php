@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
 use App\Http\Controllers\ProfileController;
@@ -16,6 +17,9 @@ Route::get('/', function () {
     ]);
 });
 
+Route::post('/buy-credits/webhook', [CreditController::class, 'webhook'])->name('credit.webhook');
+
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -28,6 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
     Route::post('/feature1', [Feature1Controller::class, 'calculate'])->name('feature1.calculate');
     Route::post('/feature2', [Feature2Controller::class, 'calculate'])->name('feature2.calculate');
+    Route::get('/buy-credits', [CreditController::class, 'index'])->name('credit.index');
+    Route::get('/buy-credits/success', [CreditController::class, 'success'])->name('credit.success');
+    Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])->name('credit.cancel');
+    Route::post('/buy-credits/{package}', [CreditController::class, 'buyCredits'])->name('credit.buy');
 });
 
 require __DIR__ . '/auth.php';

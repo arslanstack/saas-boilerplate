@@ -1,9 +1,51 @@
-import React from 'react'
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { usePage } from "@inertiajs/react";
+import { Head } from '@inertiajs/react';
+import CreditPricingCards from "@/Components/CreditPricingCards";
 
-const Index = () => {
+export default function Index({ packages, features, success, error }) {
+
+    const { auth } = usePage().props;
+    const availableCredits = auth.user.available_credits;
     return (
-        <div>Index</div>
+        <AuthenticatedLayout>
+            <Head title="Your Credits" />
+            <div
+                className="max-w-7xl mx-auto sm:px-6 lg:px-8"
+            >
+                {success && <div
+                    className="rounded-lg bg-emerald-500 text-gray-100 p-3 mb-4"
+                >
+                    {success}
+                </div>}
+                {error && <div
+                    className="rounded-lg bg-red-500 text-gray-100 p-3 mb-4"
+                >
+                    {error}
+                </div>}
+
+                <div
+                    className="bg-gray dark:bg-slate-100 overflow-hidden shadow-sm sm:rounded-lg relative"
+                >
+                    <div
+                        className="flex flex-col gap-3 items-center p-4"
+                    >
+                        <img src="/img/coin.png" alt="coins" className="w-[100px]" />
+                        <h3
+                            className="text-black text-2xl"
+                        >
+                            You have {availableCredits} credits.
+                        </h3>
+                    </div>
+
+                    <CreditPricingCards
+                        packages={packages.data}
+                        features={features.data}
+                    />
+                </div>
+
+            </div>
+        </AuthenticatedLayout>
     )
 }
 
-export default Index

@@ -3,11 +3,11 @@ import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 
-export default function Authenticated({ user, header, children }) {
+export default function Authenticated({ header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
+    const user = usePage().props.auth.user;
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -41,7 +41,7 @@ export default function Authenticated({ user, header, children }) {
                                 {user.available_credits} Credits
                             </span>
                             <Link
-                                href='/'
+                                href={route("credit.index")}
                                 className='text-black py-1 px-3 rounded-md border transition-colors hover:bg-slate-100'
                             >
                                 Get More

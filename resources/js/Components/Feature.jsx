@@ -32,7 +32,7 @@ export default function Feature({ feature, answer, children }) {
                                 <div className='text-3xl font-semibold text-slate-100'>Insufficient Credits</div>
                                 <div className='text-lg font-semibold text-slate-100'>You need {feature.requried_credits} credits to access this feature.
                                     <Link
-                                        href='/'
+                                        href={route("credit.index")}
                                         className='underline pl-1 text-slate-100 hover:text-slate-200 transition-colors'
                                     >
                                         Buy Credits
