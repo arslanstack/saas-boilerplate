@@ -25,14 +25,14 @@ export default function Index({ packages, features, success, error }) {
                 </div>}
 
                 <div
-                    className="bg-gray dark:bg-slate-100 overflow-hidden shadow-sm sm:rounded-lg relative"
+                    className="bg-white mt-2 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg relative"
                 >
                     <div
                         className="flex flex-col gap-3 items-center p-4"
                     >
                         <img src="/img/coin.png" alt="coins" className="w-[100px]" />
                         <h3
-                            className="text-black text-2xl"
+                            className="text-white text-2xl"
                         >
                             You have {availableCredits} credits.
                         </h3>
